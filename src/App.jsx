@@ -16,7 +16,7 @@ function App() {
   return (
     <div className=''>
       <Navbar/>
-      <Table/>
+
       <Routes>
 <Route path='/' element={<Land/>}/>
 

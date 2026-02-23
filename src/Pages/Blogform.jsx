@@ -3,8 +3,81 @@ import React, { useEffect, useState } from "react";
 import Titlehead from "../components/Titlehead";
 
 import categoriesData from "../Data/categories.json";
+import Table from "./Table";
+import './Table.css'
 
 export const BlogePage = () => {
+  const [blogData, setBlogData] = useState([]);
+    const [editIndex, setEditIndex] = useState(null);
+    const [editItem, setEditItem] = useState({});
+
+    // !load huda sath local storage bata data pull garxa
+    useEffect(() => {
+      const storedData = localStorage.getItem("blogs");
+      if (storedData) {
+        setBlogData(JSON.parse(storedData));
+      }
+    }, []);
+  
+  
+    const handleEdit = (index) => {
+      setEditIndex(index);
+      // console.log(index);
+      setEditItem({ ...blogData[index] });
+const activeBlog=(blogData[index]);
+
+console.log(activeBlog);
+
+
+
+
+    setTitle(activeBlog.titlestr);
+setDescription(activeBlog.descriptionstr);
+setAuthor(activeBlog.authorstr);
+setCategory(activeBlog.categorystr);
+setDate(activeBlog.datestr);
+setImg(activeBlog.imgstr);
+    };
+  
+  
+    const handleSave = () => {
+ const updatedBlog = {
+    ...blogData[editIndex],
+    titlestr: title,
+    descriptionstr: description,
+    authorstr: author,
+    categorystr: category,
+    datestr: date,
+    imgstr: img,
+  };
+
+  const updatedData = [...blogData];
+  updatedData[editIndex] = updatedBlog;
+
+  setBlogData(updatedData);
+  localStorage.setItem("blogs", JSON.stringify(updatedData));
+
+  // reset
+  setEditIndex(null);
+  setEditItem({});
+  setTitle("");
+  setDescription("");
+  setAuthor("");
+  setCategory("");
+  setDate("");
+  setImg("");
+
+
+
+    };
+  
+  
+    const handleDelete = (index) => {
+      const updatedData = blogData.filter((_, i) => i !== index);
+      setBlogData(updatedData);
+      localStorage.setItem("blogs", JSON.stringify(updatedData));
+    };
+  
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -65,7 +138,7 @@ setImg("");
   return (
     <>
     <Titlehead title={"Share your Experience"}/>
-    <div className="flex justify-center  mt-12 ">
+    <div className="flex justify-center flex-col mt-12 ">
       
       <div className="bg-white sm:w-[90%] md:w-[80%] lg:w-[70%]  flex flex-col rounded-4xl ">
           <h1 className="bg-black text-white text-center text-2xl py-4 rounded-t-2xl mb-6">New Post Entry</h1>
@@ -163,16 +236,96 @@ setImg("");
 
 
 
+
+{editIndex!==null ? (<button onClick={() => handleSave()} className='bg-green-600 w-fit px-8 py-4 rounded-lg text-white font-semibold'>
+                    Save
+                  </button>
+                ) : (
           <button type="button"
           className=" w-fit px-8 py-4 rounded-lg bg-black text-white font-semibold "
           onClick={submit}
         >
           Publish Blog
         </button>
+                )}
+
         </form>
 
 
       </div>
+          <div>
+      <table border="1" cellPadding="8" className='border-collapse border m-8 '>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Author</th>
+            <th>Blog</th>
+            <th id="describe">Description</th>
+            <th>Category</th>
+            <th>ImageUrl</th>
+            <th id="date">Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {blogData.map((item, index) => (
+            <tr key={index}>
+
+              <td>{index + 1}</td>
+
+
+              <td>
+                {  item.authorstr}
+              </td>
+
+              <td>
+                { item.titlestr}
+              </td>
+
+              <td>
+                { item.descriptionstr.split(" ").slice(0, 30).join(" ")}...
+              </td>
+
+              <td>
+                { item.categorystr}
+              </td>
+
+              <td>
+                {item.imgstr}
+              </td>
+
+              <td>
+                {item.datestr}
+              </td>
+
+
+              <td>
+                {editIndex === index ? 
+                                  <div>
+                  <button onClick={() => handleEdit(index)} className='bg-gray-600 text-white rounded px-2 py-1' disabled>
+                    Edit
+                  </button>
+                                <button onClick={() => handleDelete(index)} className='ml-2 bg-gray-600 text-white rounded px-2 py-1' disabled>
+                  Delete
+                </button>
+                </div> : (
+                  <div>
+                  <button onClick={() => handleEdit(index)} className='bg-green-600 text-white rounded px-2 py-1'>
+                    Edit
+                  </button>
+                                <button onClick={() => handleDelete(index)} className='ml-2 bg-red-600 text-white rounded px-2 py-1'>
+                  Delete
+                </button>
+                </div>
+                )}
+                
+              </td>
+
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
       </div>
     </>
   );
