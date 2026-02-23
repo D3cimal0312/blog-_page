@@ -1,0 +1,21 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+table{
+    width: 97%;
+}
+td{
+    padding: 10px;
+}
+th{
+    padding: 15px;
+    font-size: 1.2rem;
+}
+#describe{
+    width: 25%;
+}
+#date{
+    width: 6%;
+}

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+/* Tailwind theme variables */
+@theme {
+  --font-ox: "Oxanium", sans-serif;
+  --animate-infinitescroll: infinitescroll 60s linear infinite;
+}
+
+/* Animations must be OUTSIDE @theme */
+@keyframes infinitescroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Your custom utility class */
+.inhscroll {
+  width: max-content;
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+}

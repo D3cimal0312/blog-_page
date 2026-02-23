@@ -1,0 +1,84 @@
+
+{
+  "blogs": [
+    {
+      "id": 1,
+      "blognum": "BLOG-001",
+      "title": "Getting Started with React and Vite",
+      "category": "Web Development",
+      "author": "Anuj Bajracharya",
+        
+      "description": "A beginner-friendly guide to setting up a modern React project using Vite and understanding the project structure.",
+      "content": "React with Vite offers a fast and lightweight development experience. In this article, we explore how to initialize a project, understand folder structure, and start building components.",
+      "imgurl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+      "date": "2026-02-20",
+      "readTime": "6 min read",
+      "tags": ["react", "vite", "frontend", "javascript"]
+      
+      
+    },
+    {
+      "id": 2,
+      "blognum": "BLOG-002",
+      "title": "Tailwind CSS v4: What’s New and Why It Matters",
+      "category": "CSS",
+      "author": "Sanjay Sharma",
+      "description": "Tailwind CSS v4 introduces a new theming system and better performance. Let’s see what changed.",
+      "content": "Tailwind v4 removes the need for heavy config files and introduces @theme variables, making styling more intuitive and faster.",
+      "imgurl": "https://images.unsplash.com/photo-1505685296765-3a2736de412f",
+      "date": "2026-02-18",
+      "readTime": "5 min read",
+      "tags": ["tailwind", "css", "ui", "design"]
+      
+      
+    },
+    {
+      "id": 3,
+      "blognum": "BLOG-003",
+      "title": "Understanding useEffect in React",
+      "category": "JavaScript",
+      "author": "Priya Koirala",
+      "description": "useEffect is one of the most confusing hooks for beginners. This post explains it with simple examples.",
+      "content": "The useEffect hook allows you to perform side effects in function components. Common use cases include data fetching and event listeners.",
+      "imgurl": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f",
+      "date": "2026-02-15",
+      "readTime": "7 min read",
+      "tags": ["react", "hooks", "useEffect"]
+      
+      
+    },
+    {
+      "id": 4,
+      "blognum": "BLOG-004",
+      "title": "How I Built My First Blog Website",
+      "category": "Personal",
+      "author": "Anuj Bajracharya",
+      "description": "A personal journey of building a blog website using React, Tailwind, and Vite.",
+      "content": "Building my first blog helped me understand component structure, reusable UI, and state management in React.",
+      "imgurl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      "date": "2026-02-10",
+      "readTime": "4 min read",
+      "tags": ["portfolio", "react", "tailwind", "learning"]
+      
+      
+    },
+    {
+      "id": 5,
+      "blognum": "BLOG-005",
+      "title": "Common Mistakes Beginners Make in Web Development",
+      "category": "Career",
+      "author":"Rohit Singh",
+      "description": "Avoid these common mistakes if you’re starting your journey in web development.",
+      "content": "Many beginners struggle with consistency, fundamentals, and copying tutorials without understanding concepts.",
+      "imgurl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      "date": "2026-02-05",
+      "readTime": "6 min read",
+      "tags": ["career", "webdev", "beginners"]
+      
+    
+    }
+  ]
+}
+
+
+

@@ -1,0 +1,17 @@
+
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+*{
+
+  box-sizing: border-box;
+  font-family: "Oxanium", sans-serif;
+}
+#root{
+background-color: #e9e9e9e9;
+font-family: "Oxanium", sans-serif;
+}
+@theme {
+  --font-ox: "Oxanium", sans-serif;
+}
+
